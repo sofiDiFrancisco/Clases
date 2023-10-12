@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <script>
+        fetch('https://fakestoreapi.com/products/1')
+            .then(res=>res.json())
+            .then(json=> {
+            console.log(json);
+            //Capturamos el elemento imagen por su id
+            const imagElement = document.querySelector('#imagElement');
+            //Seteamos la propiedad src para mostrar la imagen
+            imagElement.src = json.image;
+            //Capturamos el elemento h1 para setear el titulo del producto
+            const titleElement = document.querySelector('#titleElement');
+            titleElement.innerText = json.title;
+        });
+    </script>
+</head>
+<body>
+    <img alt='Products Details' id='imagElement' height="100" width="100">
+    <h1 id='titleElement'></h1>
+</body>
+</html>
